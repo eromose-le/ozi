@@ -94,6 +94,18 @@
                                                 @enderror
                                             </div>
 
+                                            {{-- FILE --}}
+                                            <div class="position-relative form-group">
+                                                <label for="exampleFile" class="">Upload File</label>
+                                                <input name="campaignfile" id="exampleFile" type="file"
+                                                    class="form-control-file">
+                                                <small class="form-text text-muted"> .pdf, .image, .video, .audio
+                                                </small>
+                                                @error('campaignfile')
+                                                    <div style="color: salmon;">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+
 
                                         </div>
                                     </div>
