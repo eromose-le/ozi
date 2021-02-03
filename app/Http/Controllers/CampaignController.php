@@ -30,8 +30,8 @@ class CampaignController extends Controller
 
         $this->validate($req, [
             'campaignname' => 'required|max:50',
+            'campaignfile' => 'file|max:9999',
             'campaignbody' => 'required|min:2',
-            'campaignfile' => 'file|max:1999',
             'campaigncsv' => 'file|max:1999',
             'campaigndate' => 'required',
             'campaigntime' => 'required'
@@ -42,9 +42,9 @@ class CampaignController extends Controller
         $req->user()->campaigns()->create([
             'campaignname' => $req->campaignname,
             'campaignbody' => $req->campaignbody,
+            'campaignfile' => $req->campaignfile,
             'campaignnumbers' => $req->campaignnumbers,
-            'campaignfile' => $req->campaignfile->store('public'),
-            'campaigncsv' => $req->campaigncsv->store('public'),
+            'campaigncsv' => $req->campaigncsv->file('campaigncsv')->store('public'),
             'campaigndate' => $req->campaigndate,
             'campaigntime' => $req->campaigntime,
         ]);

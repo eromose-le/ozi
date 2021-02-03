@@ -6,17 +6,16 @@
     color: #000000;
 }
 
-<!-- the line in the campagin nar bar -->
 .nav-tabs {
-    border-bottom: 1px solid #dee2e6;
+    border-bottom: 1px none #FFFFFF!important;
 }
 
-<!-- margin button (no numbers) -->
+
 .mt-2, .my-2 {
     margin-top: 0.9rem !important;
 }
 
-<!-- for categorie span -->
-.small {
-    font-size: small;
+.small, .small {
+    font-size: 53%;
+    font-weight: 400;
 }

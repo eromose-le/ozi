@@ -74,7 +74,7 @@
 
                                             {{-- CAMPAIGN TITLE --}}
                                             <div class="position-relative form-group">
-                                                <label for="campaignname" class="">Campaign Title</label>
+                                                <label for="campaignname" class="">Campaign Title <span style="font-size: 70%; color:red;">*</span></label>
                                                 <input name="campaignname" id="exampleName" type="text" class="form-control" value="{{ old('campaignname') }}">
                                                 @error('campaignname')
                                                     <div style="color: salmon;">{{ $message }}</div>
@@ -83,7 +83,7 @@
 
                                             {{-- MESSAGE --}}
                                             <div class="position-relative form-group">
-                                                <label for="textarea">Message</label>
+                                                <label for="textarea">Message <span style="font-size: 70%; color:red;">*</span></label>
                                                 <textarea name="campaignbody" id="editor" type="text"
                                                     placeholder="Text message to send out" rows="1"
                                                     class="form-control autosize-input"
@@ -94,10 +94,11 @@
                                                 @enderror
                                             </div>
 
+                                            <br />
                                             {{-- FILE --}}
                                             <div class="position-relative form-group">
-                                                <label for="exampleFile" class="">Upload File</label>
-                                                <input name="campaignfile" id="exampleFile" type="file"
+                                                <label for="campaignfile" class="">Upload File</label>
+                                                <input name="campaignfile" id="campaignfile" type="file"
                                                     class="form-control-file">
                                                 <small class="form-text text-muted"> .pdf, .image, .video, .audio
                                                 </small>
@@ -130,8 +131,8 @@
                                             <br/>
                                             {{-- CSV --}}
                                             <div class="position-relative form-group">
-                                                <label for="exampleFile" class="">Upload Bulk Numbers</label>
-                                                <input name="campaigncsv" id="exampleFile" type="file"
+                                                <label for="campaigncsv" class="">Upload Bulk Numbers</label>
+                                                <input name="campaigncsv" id="campaigncsv" type="file"
                                                     class="form-control-file">
                                                 <small class="form-text text-muted"> .csv, .xlsx, .xlsm, .xlsb,
                                                     .xltx
@@ -174,7 +175,7 @@
                                             <div class="main-card mb-3 card">
                                                 
                                                 <div class="card-body">
-                                                    <h4 style="color: rgb(55, 25, 138)">Select Categories <span class="btn-warning">( * select this part only if you don't have numbers )</span></h4>
+                                                    <h4 style="color: rgb(55, 25, 138)">Select Categories <span class="btn-warning small" style="font-size: 57%;">( * select this part only if you don't have numbers )</span></h4>
                                                     {{-- <h5 class="card-title">Age</h5> --}}
                                                     <div class="position-relative form-group">
 
@@ -237,26 +238,26 @@
 
                                                         {{-- INTEREST CATEGORY --}}
                                                         <div>
-                                                            <h5 class="card-title">Interest of Recepient </h5>
+                                                            <h5 class="card-title">Interest of Recepient <span class="btn-warning small" style="font-size: 57%;">( * select this part only if you don't have numbers )</span></h5>
                                                             <div class="custom-checkbox custom-control custom-control-inline">
-                                                                <input name="crypto" type="checkbox" id="exampleCustomInline4" class="custom-control-input">
-                                                                <label class="custom-control-label" for="exampleCustomInline4">Crypto / Forex</label>
+                                                                <input name="crypto" type="checkbox" id="crypto" class="custom-control-input">
+                                                                <label class="custom-control-label" for="crypto">Crypto / Forex</label>
                                                             </div>
                                                             <div class="custom-checkbox custom-control custom-control-inline">
-                                                                <input name="fasion" type="checkbox" id="exampleCustomInline5" class="custom-control-input">
-                                                                <label class="custom-control-label" for="exampleCustomInline5">Fasion</label>
+                                                                <input name="fasion" type="checkbox" id="fasion" class="custom-control-input">
+                                                                <label class="custom-control-label" for="fasion">Fasion</label>
                                                             </div>
                                                             <div class="custom-checkbox custom-control custom-control-inline">
-                                                                <input name="inspirational" type="checkbox" id="exampleCustomInline6" class="custom-control-input">
-                                                                <label class="custom-control-label" for="exampleCustomInline6">Inspirational</label>
+                                                                <input name="inspirational" type="checkbox" id="inspirational" class="custom-control-input">
+                                                                <label class="custom-control-label" for="inspirational">Inspirational</label>
                                                             </div>
                                                             <div class="custom-checkbox custom-control custom-control-inline">
-                                                                <input name="beauty" type="checkbox" id="exampleCustomInline7" class="custom-control-input">
-                                                                <label class="custom-control-label" for="exampleCustomInline7">Beauty</label>
+                                                                <input name="beauty" type="checkbox" id="beauty" class="custom-control-input">
+                                                                <label class="custom-control-label" for="beauty">Beauty</label>
                                                             </div>
                                                             <div class="custom-checkbox custom-control custom-control-inline">
-                                                                <input name="technology" type="checkbox" id="exampleCustomInline8" class="custom-control-input">
-                                                                <label class="custom-control-label" for="exampleCustomInline8">Technology</label>
+                                                                <input name="technology" type="checkbox" id="technology" class="custom-control-input">
+                                                                <label class="custom-control-label" for="technology">Technology</label>
                                                             </div>
                                                         </div>
 
@@ -267,7 +268,7 @@
 
                                             {{-- DATE --}}
                                             <div class="position-relative form-group">
-                                                <label for="exampleDate">Date</label>
+                                                <label for="exampleDate">Date <span style="font-size: 70%; color:red;">*</span></label>
                                                 <input name="campaigndate" id="exampleDate"
                                                     placeholder="date placeholder" type="date"
                                                     class="form-control">
@@ -278,7 +279,7 @@
 
                                             {{-- TIME --}}
                                             <div class="position-relative form-group">
-                                                <label for="exampleTime">Time</label>
+                                                <label for="exampleTime">Time <span style="font-size: 70%; color:red;">*</span></label>
                                                 <input name="campaigntime" id="exampleTime"
                                                     placeholder="time placeholder" type="time"
                                                     class="form-control">

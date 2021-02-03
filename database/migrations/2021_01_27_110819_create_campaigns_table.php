@@ -19,10 +19,9 @@ class CreateCampaignsTable extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('campaignname');
             $table->text('campaignbody');
+            $table->string('campaignfile')->nullable();
             $table->string('campaignnumbers')->default('+2348159011732');
-            $table->string('campaignfile');
-            $table->string('campaigncsv');
-            // ->nullable()
+            $table->string('campaigncsv')->nullable();
             $table->string('campaigndate');
             $table->string('campaigntime');
 

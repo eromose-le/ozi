@@ -15,6 +15,7 @@
  <meta name="msapplication-tap-highlight" content="no">
 
  <link href="/css/main.css" rel="stylesheet">
+ <link href="/css/custom.css" rel="stylesheet">
  <link rel="stylesheet" href="{{ asset('css/app.css')  }}">
 </head>
 
@@ -134,7 +135,7 @@
             <div class="scrollbar-sidebar">
                 <div class="app-sidebar__inner">
                     <ul class="vertical-nav-menu">
-                        <li class="app-sidebar__heading">Menu</li>
+                        <li class="app-sidebar__heading" style="color: #13b966">Menu</li>
                         <li class="mm-active">
                             <a href="#">
                                 <i class="metismenu-icon pe-7s-rocket mm-active"></i>Dashboards

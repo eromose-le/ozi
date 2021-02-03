@@ -12,6 +12,7 @@ class Campaign extends Model
     protected $fillable = [
         'campaignname',
         'campaignbody',
+        'campaignfile',
         'campaignnumbers',
         'campaigncsv',
         'campaigndate',
