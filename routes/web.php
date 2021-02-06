@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\Admin\ShowController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -35,12 +35,12 @@ Route::get('edit/{id}', [ReportController::class, 'show']);
 Route::post('/edit', [ReportController::class, 'update']); 
 
 
-Route::get('/show', [ShowController::class, 'index'])
+Route::get('/admin', [AdminController::class, 'index'])
     ->name('show')
     ->middleware('auth');
-Route::get('delete/{id}', [ShowController::class, 'delete']);
-Route::get('edit/{id}', [ShowController::class, 'show']);
-Route::post('/edit', [ShowController::class, 'update']);
+Route::get('delete/{id}', [AdminController::class, 'delete']);
+Route::get('edit/{id}', [AdminController::class, 'show']);
+Route::post('/edit', [AdminController::class, 'update']);
 
 
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment');

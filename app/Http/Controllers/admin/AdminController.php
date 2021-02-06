@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Campaign;
 
-class ShowController extends Controller
+class AdminController extends Controller
 {
     //AUTHENTICATE LOGIN
     public function __construct()
@@ -35,7 +35,7 @@ class ShowController extends Controller
     {
         $campaign_auth = Campaign::find($id);
         $campaign_auth->delete();
-        return redirect('show');
+        return redirect('admin');
     }
 
     public function show($id)
@@ -57,7 +57,7 @@ class ShowController extends Controller
         $campaign_auth->actions=$req->actions;
         $campaign_auth->actionsclass=$req->actionsclass;
         $campaign_auth->save();
-        return redirect('show');
+        return redirect('admin');
     }
 
 }
