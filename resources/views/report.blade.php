@@ -21,10 +21,18 @@
             </div>
         </div>
         <!-- MONITOR DASHBOARD END -->
-x
+
+        <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
+            <li class="nav-item">
+                <a role="tab" class="nav-link active" id="tab-0" href="{{ route('show') }}">
+                    <span>ADMIN PAGE</span>
+                </a>
+            </li>
+        </ul>
 
         <div class="tabs-animation">
 
+        <br/>
             <!-- Messages -->
             <div class="row">
                 @if ($campaign_single->count())
