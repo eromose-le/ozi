@@ -17,15 +17,16 @@ class ShowController extends Controller
     public function index()
     {
         // Fetch Campaign Table into Different Variables 
-        $campaign_single = Campaign::take(1)->latest()->get();
-        $campaigns = Campaign::orderBy('created_at','desc')->paginate(3);
+        // $campaign_single = Campaign::take(1)->latest()->get();
+        // $campaigns = Campaign::orderBy('created_at','desc')->paginate(3);
 
         $campaign_auth = Campaign::orderBy('created_at','desc')->get();
+        // $campaign_auth = Campaign::where('user_id', auth()->user()->id)->orderBy('created_at','desc')->paginate(2);
 
         return view('admin.show', [
             // Pass the Tables to View
-            'campaigns' => $campaigns,
-            'campaign_single' => $campaign_single,
+            // 'campaigns' => $campaigns,
+            // 'campaign_single' => $campaign_single,
             'campaign_auth' => $campaign_auth
         ]);
     }
@@ -34,7 +35,7 @@ class ShowController extends Controller
     {
         $campaign_auth = Campaign::find($id);
         $campaign_auth->delete();
-        return redirect('report');
+        return redirect('show');
     }
 
     public function show($id)
@@ -56,7 +57,7 @@ class ShowController extends Controller
         $campaign_auth->actions=$req->actions;
         $campaign_auth->actionsclass=$req->actionsclass;
         $campaign_auth->save();
-        return redirect('report');
+        return redirect('show');
     }
 
 }

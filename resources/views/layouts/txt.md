@@ -20,3 +20,7 @@
 .small {
     font-size: small;
 }
+
+.bg-white {
+    background-color: #002513 !important;
+}

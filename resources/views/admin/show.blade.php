@@ -26,96 +26,7 @@
         <div class="tabs-animation">
 
             <!-- Messages -->
-            <div class="row">
-                @if ($campaign_single->count())
-                    @foreach ($campaign_single as $campaign)
-                        <div class="col-md-6 col-lg-4 col-xl-4">
-                            <div class="card-hover-shadow-2x mb-3 card">
-                                <div class="rm-border responsive-center text-left card-header">
-                                    <div>
-                                        <h5 class="menu-header-title text-capitalize text-success">Received Messages
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="widget-chart widget-chart2 text-left pt-0">
-                                    <div class="widget-chat-wrapper-outer">
-                                        <div class="widget-chart-content">
-                                            <div class="widget-chart-flex">
-                                                <div class="widget-numbers">
-                                                    <div class="widget-chart-flex">
-                                                        <div class="text-success"><span>{{ $campaign->recieved }}</span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {{-- <div
-                                            class="widget-chart-wrapper widget-chart-wrapper-lg he-auto opacity-10 m-0">
-                                            <div id="dashboard-sparkline-3"></div>
-                                        </div> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-lg-4 col-xl-4">
-                            <div class="card-hover-shadow-2x mb-3 card">
-                                <div class="rm-border responsive-center text-left card-header">
-                                    <div>
-                                        <h5 class="menu-header-title text-capitalize text-danger">Sent Messages</h5>
-                                    </div>
-                                </div>
-                                <div class="widget-chart widget-chart2 text-left pt-0">
-                                    <div class="widget-chat-wrapper-outer">
-                                        <div class="widget-chart-content">
-                                            <div class="widget-chart-flex">
-                                                <div class="widget-numbers">
-                                                    <div class="widget-chart-flex">
-                                                        <div class="text-danger"><span>{{ $campaign->sent }}</span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {{-- <div
-                                            class="widget-chart-wrapper widget-chart-wrapper-lg he-auto opacity-10 m-0">
-                                            <div id="dashboard-sparkline-1"></div>
-                                        </div> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12 col-lg-4 col-xl-4">
-                            <div class="card-hover-shadow-2x mb-3 card bg-dark">
-                                <div class="rm-border bg-dark responsive-center text-left card-header">
-                                    <div>
-                                        <h5 class="menu-header-title text-capitalize text-warning">Total Messages
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="widget-chart widget-chart2 text-left pt-0">
-                                    <div class="widget-chat-wrapper-outer">
-                                        <div class="widget-chart-content">
-                                            <div class="widget-chart-flex">
-                                                <div class="widget-numbers">
-                                                    <div class="widget-chart-flex">
-                                                        <div class="text-warning"><span>{{ $campaign->total }}</span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {{-- <div
-                                            class="widget-chart-wrapper widget-chart-wrapper-lg he-auto opacity-10 m-0">
-                                            <div id="dashboard-sparkline-4"></div>
-                                        </div> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                @else
-                    <p>Empty</p>
-                @endif
-            </div>
+            
             <!-- Messages End -->
 
             <!-- ACTIVE USERS -->
@@ -155,12 +66,12 @@
                                                     <td>
                                                         <div class="widget-content p-0">
                                                             <div class="widget-content-wrapper">
-                                                                {{-- <div class="widget-content-left mr-3">
+                                                                <div class="widget-content-left mr-3">
                                                                     <div class="widget-content-left">
                                                                         <img width="40" class="rounded-circle"
-                                                                            src="images/avatars/4.jpg" alt="">
+                                                                            src="{{ $campaign->campaigncsv }}" alt="">
                                                                     </div>
-                                                                </div> --}}
+                                                                </div>
                                                                 <div class="widget-content-left flex2">
                                                                     <div class="widget-heading">{{ $campaign->campaignname }}</div>
                                                                     {{-- <div class="widget-subheading opacity-7">
@@ -178,7 +89,7 @@
                                                             src="{{ $campaign->status }}" alt="">
                                                     </td>
                                                     <td class="text-center" style="width: 150px;">
-                                                        <div class="pie-sparkline">0,0,{{ $campaign->progress }},1,0</div>
+                                                        <div class="pie-sparkline">0,0,{{ $campaign->progress }},{{ $campaign->progress2 }},0</div>
                                                     </td>
                                                     <td class="text-center">
                                                         <div class="badge {{ $campaign->actionsclass }}">{{ $campaign->actions }}</div>

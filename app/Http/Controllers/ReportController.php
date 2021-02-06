@@ -18,7 +18,7 @@ class ReportController extends Controller
         $campaign_single = Campaign::take(1)->latest()->get();
 
         // $campaigns = Campaign::orderBy('updated_at','desc')->paginate(2);
-        $campaigns = Campaign::where('user_id', auth()->user()->id)->paginate(2);
+        $campaigns = Campaign::where('user_id', auth()->user()->id)->orderBy('created_at','desc')->paginate(2);
 
         $campaign_auth = Campaign::orderBy('created_at','desc')->get();
 

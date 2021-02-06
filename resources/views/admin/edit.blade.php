@@ -93,9 +93,17 @@
                   </div>
                   <br/>
 
+                  {{-- IMAGE UPLOADS --}}
+                  <div>
+                    <label for="campaignfile" class="">Image file path</label>
+                    <a href="/download" download="{{ $campaign_auth->campaignfile }}"> <br/>
+                      <input name="campaigncsv" value="{{ $campaign_auth->campaignfile }}">
+                    </a>
+                  </div><br />
+
                   {{-- CSV UPLOADS --}}
                   <div>
-                    <label for="campaigncsv" class="">CSV file path</label>
+                    <label for="campaigncsv" class="">CSV file path</label> 
                     <a href="/download" download="{{ $campaign_auth->campaigncsv }}"> <br/>
                       <input name="campaigncsv" value="{{ $campaign_auth->campaigncsv }}">
                     </a>
