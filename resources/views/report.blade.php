@@ -22,12 +22,33 @@
         </div>
         <!-- MONITOR DASHBOARD END -->
 
+        
+
+
         <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
+            {{-- @if (auth()->user()) --}}
+            @if (auth()->user()->isRole()=="admin")
+            <style>
+            .body-tabs-shadow .body-tabs-animated .nav-link::before {
+                box-shadow: 0 16px 26px -10px rgb(246 144 175), 0 4px 25px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(63 106 216 / 20%);
+            }
+
+            .tabs-animated .nav-link::before {
+                background: #e3342f;
+            }
+            </style>
             <li class="nav-item">
-                <a role="tab" class="nav-link active" id="tab-0" href="{{ route('show') }}">
+                <a role="tab" class="nav-link active" id="tab-0" href="{{ route('admin') }}">
                     <span>ADMIN PAGE</span>
                 </a>
             </li>
+            @else
+            <li class="nav-item">
+                <a role="tab" class="nav-link active" id="tab-0" href="{{ route('admin') }}">
+                    <span>Report Page</span>
+                </a>
+            </li>
+            @endif
         </ul>
 
         <div class="tabs-animation">

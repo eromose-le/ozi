@@ -142,7 +142,7 @@
                             </a>
                             <ul class="mm-show mm-active">
                                 <li>
-                                    <a href="{{ route('show') }}">
+                                    <a href="{{ route('admin') }}">
                                         <i class="metismenu-icon"></i>User Panel
                                     </a>
                                 </li>

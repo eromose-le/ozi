@@ -63,6 +63,8 @@
                 <span>Please sign in to your account.</span>
               </h4>
               <h6 class="mt-3">No account? <a href="{{ route('register') }}" class="text-primary">Sign up now</a></h6>
+
+              <h6 class="mt-3">Report? <a href="{{ route('report') }}" class="text-primary">Continue where you left</a></h6>
               <div class="divider row"></div>
               <div>
 

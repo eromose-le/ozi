@@ -74,7 +74,7 @@
       <!-- SIDE FORM -->
       <ul class="forms-wizard">
       <li>
-        <a href="{{ route('show') }}">
+        <a href="{{ route('admin') }}">
           <span>Back to all Queries Panel</span>
         </a>
       </li>

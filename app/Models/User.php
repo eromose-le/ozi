@@ -47,4 +47,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Campaign::class);
     }
+
+    // public function roles()
+    // {
+    //     return $this->belongsToMany('App\Role');
+    // }
+
+    public function isRole()
+    {
+        return $this->role;
+    }
 }

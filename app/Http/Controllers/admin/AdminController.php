@@ -9,24 +9,16 @@ use App\Models\Campaign;
 class AdminController extends Controller
 {
     //AUTHENTICATE LOGIN
-    public function __construct()
-    {
-        $this->middleware(['auth']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware(['auth']);
+    // }
 
     public function index()
     {
-        // Fetch Campaign Table into Different Variables 
-        // $campaign_single = Campaign::take(1)->latest()->get();
-        // $campaigns = Campaign::orderBy('created_at','desc')->paginate(3);
-
         $campaign_auth = Campaign::orderBy('created_at','desc')->get();
-        // $campaign_auth = Campaign::where('user_id', auth()->user()->id)->orderBy('created_at','desc')->paginate(2);
 
-        return view('admin.show', [
-            // Pass the Tables to View
-            // 'campaigns' => $campaigns,
-            // 'campaign_single' => $campaign_single,
+        return view('admin.admin', [
             'campaign_auth' => $campaign_auth
         ]);
     }
