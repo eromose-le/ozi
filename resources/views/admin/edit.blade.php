@@ -202,8 +202,8 @@
                     <br/><br/>
                   </div>
 
-                  {{-- checkbokes --}}
-                  <div>
+                  {{-- BELOW CHECKBOX INPUT FORMS EDITS --}}
+                  {{-- <div>
 
                     <div>
                       <label for="age1" class="">0 - 18 AGE ( {{ $campaign_auth->age1 }} )</label>
@@ -238,7 +238,7 @@
                       <input name="technology" placeholder="{{ $campaign_auth->technology }}">
                     </div>
 
-                  </div>
+                  </div> --}}
 
               </div>
 

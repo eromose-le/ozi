@@ -47,4 +47,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Campaign::class);
     }
+
+    // ADMIN Middleware FUNC
+    // User Model; User Table name;
+    public function isRole(){
+        return $this->role;
+    }
 }

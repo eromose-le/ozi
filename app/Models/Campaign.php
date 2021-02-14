@@ -21,6 +21,14 @@ class Campaign extends Model
         'progress',
         'actions',
         'actionsclass',
+        'age1',
+        'age2',
+        'age3',
+        'crypto',
+        'fasion',
+        'inspirational',
+        'beauty',
+        'technology',
     ];
 
     public function ownedBy(User $user)

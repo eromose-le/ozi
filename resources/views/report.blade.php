@@ -21,7 +21,35 @@
             </div>
         </div>
         <!-- MONITOR DASHBOARD END -->
-x
+
+        
+
+        {{-- @if(Auth::check() && Auth::user()->isRole()=="admin") --}}
+        @if (auth()->user()->isRole()=="admin")
+            <style>
+                .body-tabs-shadow .body-tabs-animated .nav-link::before {
+                box-shadow: 0 16px 26px -10px rgb(252 218 232), 0 4px 25px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(63 106 216 / 20%);
+            }
+            .tabs-animated .nav-link::before {
+                background: #d83f3f;
+            }
+            </style>
+            <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
+                <li class="nav-item">
+                    <a role="tab" class="nav-link active" id="tab-0" href="{{ route('show') }}">
+                        <span>ADMIN PAGE</span>
+                    </a>
+                </li>
+            </ul>
+        @else
+            <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
+                <li class="nav-item">
+                    <a role="tab" class="nav-link active" id="tab-0" href="{{ route('report') }}">
+                        <span>Log Report</span>
+                    </a>
+                </li>
+            </ul>
+        @endif
 
         <div class="tabs-animation">
 

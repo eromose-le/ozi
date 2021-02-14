@@ -35,14 +35,14 @@ class CreateCampaignsTable extends Migration
             $table->string('sent')->default('0');
             $table->string('total');
 
-            $table->string('age1')->default('off');
-            $table->string('age2')->default('off');
-            $table->string('age3')->default('off');
-            $table->string('crypto')->default('off');
-            $table->string('fasion')->default('off');
-            $table->string('inspirational')->default('off');
-            $table->string('beauty')->default('off');
-            $table->string('technology')->default('off');
+            $table->string('age1')->nullable();
+            $table->string('age2')->nullable();
+            $table->string('age3')->nullable();
+            $table->string('crypto')->nullable();
+            $table->string('fasion')->nullable();
+            $table->string('inspirational')->nullable();
+            $table->string('beauty')->nullable();
+            $table->string('technology')->nullable();
 
             $table->timestamps();
         });

@@ -41,6 +41,6 @@ class RegisterController extends Controller
 
         auth()->attempt($req->only('email', 'password'));
 
-        return redirect()->route('campaignform');
+        return redirect()->route('campaign');
     }
 }

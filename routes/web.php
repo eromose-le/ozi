@@ -19,6 +19,16 @@ use App\Http\Controllers\Auth\LogoutController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
+
+Route::group(['middleware' => ['auth' => 'admin']], function () {
+    Route::get('/admin', [AdminController::class, 'index'])
+    ->name('show')
+    ->middleware('auth');
+    Route::get('delete/{id}', [AdminController::class, 'delete']);
+    Route::get('edit/{id}', [AdminController::class, 'show']);
+    Route::post('/edit', [AdminController::class, 'update']);
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,12 +45,12 @@ Route::get('edit/{id}', [ReportController::class, 'show']);
 Route::post('/edit', [ReportController::class, 'update']); 
 
 
-Route::get('/admin', [AdminController::class, 'index'])
-    ->name('show')
-    ->middleware('auth');
-Route::get('delete/{id}', [AdminController::class, 'delete']);
-Route::get('edit/{id}', [AdminController::class, 'show']);
-Route::post('/edit', [AdminController::class, 'update']);
+// Route::get('/admin', [AdminController::class, 'index'])
+//     ->name('show')
+//     ->middleware('auth');
+// Route::get('delete/{id}', [AdminController::class, 'delete']);
+// Route::get('edit/{id}', [AdminController::class, 'show']);
+// Route::post('/edit', [AdminController::class, 'update']);
 
 
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment');

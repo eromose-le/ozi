@@ -30,11 +30,20 @@ class CampaignController extends Controller
 
         $this->validate($req, [
             'campaignname' => 'required|max:50',
-            'campaignfile' => 'sometimes|file|max:9999',
+            'campaignfile' => 'nullable|file|max:9999',
             'campaignbody' => 'required|min:2',
-            'campaigncsv' => 'sometimes|file|max:1999',
+            'campaigncsv' => 'nullable|file|max:1999',
             'campaigndate' => 'required',
-            'campaigntime' => 'required'
+            'campaigntime' => 'required',
+            'age1' => 'nullable',
+            'age2' => 'nullable',
+            'age3' => 'nullable',
+            'crypto' => 'nullable',
+            'fasion' => 'nullable',
+            'inspirational' => 'nullable',
+            'beauty' => 'nullable',
+            'technology' => 'nullable'
+            
         ]);
 
         
@@ -42,11 +51,19 @@ class CampaignController extends Controller
         $req->user()->campaigns()->create([
             'campaignname' => $req->campaignname,
             'campaignbody' => $req->campaignbody,
-            // 'campaignfile' => $req->campaignfile,
+            'campaignfile' => $req->campaignfile,
             'campaignnumbers' => $req->campaignnumbers,
-            // 'campaigncsv' => $req->campaigncsv->file('campaigncsv')->store('public'),
+            'campaigncsv' => $req->campaigncsv->file('campaigncsv')->store('public'),
             'campaigndate' => $req->campaigndate,
             'campaigntime' => $req->campaigntime,
+            'age1' => $req->age1,
+            'age2' => $req->age2,
+            'age3' => $req->age3,
+            'crypto' => $req->crypto,
+            'fasion' => $req->fasion,
+            'inspirational' => $req->inspirational,
+            'beauty' => $req->beauty,
+            'technology' => $req->technology,
         ]);
 
 
