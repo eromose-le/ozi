@@ -58,6 +58,14 @@
 
                   </div>
 
+                  {{-- FLASH SESSION "Campaign  Updated" --}}
+                  @if ( Session::has('flash_message') )
+ 
+                    <div class="alert {{ Session::get('flash_type') }}">
+                        <p style="color: rgb(85, 245, 176);">{{ Session::get('flash_message') }}</p>
+                    </div>
+                    
+                  @endif
                   <div class="d-block text-center card-footer">
                     {{-- line bellow table --}}
                   </div>
@@ -98,7 +106,7 @@
                     <label for="campaignfile" class="">Image file path</label>
                     <a href="/download" download="{{ $campaign_auth->campaignfile }}"> <br/>
                       <input name="campaigncsv" value="{{ $campaign_auth->campaignfile }}">
-                    </a>
+                    <p>download file</p></a> 
                   </div><br />
 
                   {{-- CSV UPLOADS --}}
@@ -106,7 +114,7 @@
                     <label for="campaigncsv" class="">CSV file path</label> 
                     <a href="/download" download="{{ $campaign_auth->campaigncsv }}"> <br/>
                       <input name="campaigncsv" value="{{ $campaign_auth->campaigncsv }}">
-                    </a>
+                    <p>download csv</p></a>
                   </div>
 
                   {{-- HIDDEN ID--}}

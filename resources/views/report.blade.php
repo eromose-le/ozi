@@ -24,6 +24,7 @@
 
         
 
+        {{-- ADMIN TOGGLE BUTTONS --}}
         {{-- @if(Auth::check() && Auth::user()->isRole()=="admin") --}}
         @if (auth()->user()->isRole()=="admin")
             <style>
@@ -46,6 +47,25 @@
                 <li class="nav-item">
                     <a role="tab" class="nav-link active" id="tab-0" href="{{ route('report') }}">
                         <span>Log Report</span>
+                    </a>
+                </li>
+            </ul>
+        @endif
+
+        {{-- SUPER ADMIN TOGGLE BUTTON --}}
+        @if (auth()->user()->isRole()=="superadmin")
+            <style>
+                .body-tabs-shadow .body-tabs-animated .nav-link::before {
+                box-shadow: 0 16px 26px -10px rgb(252 218 232), 0 4px 25px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(63 106 216 / 20%);
+            }
+            .tabs-animated .nav-link::before {
+                background: #3fd84c;
+            }
+            </style>
+            <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
+                <li class="nav-item">
+                    <a role="tab" class="nav-link active" id="tab-0" href="{{ route('show') }}">
+                        <span> SUPER ADMIN PAGE</span>
                     </a>
                 </li>
             </ul>
@@ -214,43 +234,10 @@
                                         <p>There are no reports</p>
                                     @endif
 
-                                    {{-- SUCCESS ROW --}}
-                                    {{-- <tr>
-                                        <td class="text-center text-muted">2</td>
-                                        <td>
-                                            <div class="widget-content p-0">
-                                                <div class="widget-content-wrapper">
-                                                    <div class="widget-content-left mr-3">
-                                                        <div class="widget-content-left">
-                                                            <img width="40" class="rounded-circle"
-                                                                src="/images/avatars/3.jpg" alt="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="widget-content-left flex2">
-                                                        <div class="widget-heading">City of David blast
-                                                        </div>
-                                                        <div class="widget-subheading opacity-7">
-                                                            +2348163657143</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="text-center">22-01-2021</td>
-                                        <td class="text-center">
-                                            <img width="40" class="rounded-circle"
-                                                src="/images/avatars/done.gif" alt="">
-                                        </td>
-                                        <td class="text-center" style="width: 150px;">
-                                            <div id="sparkline-chart9"></div>
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="badge badge-success">Completed</div>
-                                        </td>
-                                    </tr> --}}
-
                                 </tbody>
                             </table>
 
+                            {{-- PAGINATION --}}
                             <div class="mt d-flex justify-content-center">
                                 {{$campaigns->links()}}
                             </div>
@@ -269,24 +256,9 @@
                             </style>
 
 
-                            {{-- 2ND REPORT overall report --}}
-                            {{-- @if ($campaign_auth->count())
-                                @foreach ($campaign_auth as $campaign)
-                                    <div>{{ $campaign->campaignname }}
-                                        <a href={{ "edit/". $campaign->id }}>edit</a>
-                                        <a href={{ "delete/". $campaign->id }}>delete</a>
-                                    </div>
-                                @endforeach
-                            @else
-                                <p>There are no reports</p>
-                            @endif --}}
-
                         </div>
                         <div class="d-block text-center card-footer">
-                            <!-- <button class="mr-2 btn-icon btn-icon-only btn btn-outline-danger">
-                                <i class="pe-7s-trash btn-icon-wrapper"> </i>
-                            </button>
-                            <button class="btn-wide btn btn-success">Save</button> -->
+                            
                         </div>
                     </div>
                 </div>

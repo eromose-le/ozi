@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\UploadImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,9 @@ use App\Http\Controllers\Auth\LogoutController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
 
+// ADMIN ROUTES ____________________________________________________________
+Auth::routes();
 Route::group(['middleware' => ['auth' => 'admin']], function () {
     Route::get('/admin', [AdminController::class, 'index'])
     ->name('show')
@@ -30,28 +32,28 @@ Route::group(['middleware' => ['auth' => 'admin']], function () {
     Route::post('/edit', [AdminController::class, 'update']);
 });
 
+Route::get('/report', [ReportController::class, 'index'])
+    ->name('report')
+    ->middleware('auth');
+// Route::get('/download/{id}', [ReportController::class, 'downloadfunc']);
+// Route::get('delete/{id}', [ReportController::class, 'delete']);
+// Route::get('edit/{id}', [ReportController::class, 'show']);
+// Route::post('/edit', [ReportController::class, 'update']); 
+
+
+// NORMAL ROUTE ____________________________________________________________
 Route::get('/', function () {
     return view('welcome');
 });
 
+
+// APP ROUTES ______________________________________________________________
 Route::get('/campaign', [CampaignController::class, 'index'])->name('campaign');
 Route::post('/campaign', [CampaignController::class, 'store']);
 
-Route::get('/report', [ReportController::class, 'index'])
-    ->name('report')
-    ->middleware('auth');
-Route::get('delete/{id}', [ReportController::class, 'delete']);
-Route::get('edit/{id}', [ReportController::class, 'show']);
-Route::post('/edit', [ReportController::class, 'update']); 
 
-
-// Route::get('/admin', [AdminController::class, 'index'])
-//     ->name('show')
-//     ->middleware('auth');
-// Route::get('delete/{id}', [AdminController::class, 'delete']);
-// Route::get('edit/{id}', [AdminController::class, 'show']);
-// Route::post('/edit', [AdminController::class, 'update']);
-
+Route::get('upload-image', [UploadImageController::class, 'index']);
+Route::post('save', [UploadImageController::class, 'save']);
 
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
 
@@ -59,6 +61,8 @@ Route::get('/status', function () {
     return view('status');
 });
 
+
+// AUTH ROUTES ______________________________________________________________
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
@@ -66,3 +70,4 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
+

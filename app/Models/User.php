@@ -48,6 +48,11 @@ class User extends Authenticatable
         return $this->hasMany(Campaign::class);
     }
 
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
+    }
+
     // ADMIN Middleware FUNC
     // User Model; User Table name;
     public function isRole(){

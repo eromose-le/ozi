@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Campaign;
 
+use Session;
+
 class AdminController extends Controller
 {
     //AUTHENTICATE LOGIN
@@ -16,17 +18,13 @@ class AdminController extends Controller
 
     public function index()
     {
-        // Fetch Campaign Table into Different Variables 
-        // $campaign_single = Campaign::take(1)->latest()->get();
         // $campaigns = Campaign::orderBy('created_at','desc')->paginate(3);
 
+        // ALL USER in DB
         $campaign_auth = Campaign::orderBy('created_at','desc')->get();
-        // $campaign_auth = Campaign::where('user_id', auth()->user()->id)->orderBy('created_at','desc')->paginate(2);
 
         return view('admin.show', [
             // Pass the Tables to View
-            // 'campaigns' => $campaigns,
-            // 'campaign_single' => $campaign_single,
             'campaign_auth' => $campaign_auth
         ]);
     }
@@ -35,7 +33,7 @@ class AdminController extends Controller
     {
         $campaign_auth = Campaign::find($id);
         $campaign_auth->delete();
-        return redirect('admin');
+        return redirect()->back();
     }
 
     public function show($id)
@@ -46,6 +44,9 @@ class AdminController extends Controller
 
     public function update(Request $req)
     {
+        Session::flash('flash_message', 'User Campagin Updated!');
+	    Session::flash('flash_type', 'alert-info');
+        
         // return $req->input();
         $campaign_auth = Campaign::find($req->id);
         $campaign_auth->recieved=$req->recieved;
@@ -57,7 +58,7 @@ class AdminController extends Controller
         $campaign_auth->actions=$req->actions;
         $campaign_auth->actionsclass=$req->actionsclass;
         $campaign_auth->save();
-        return redirect('admin');
+        return redirect()->back();
     }
 
 }
