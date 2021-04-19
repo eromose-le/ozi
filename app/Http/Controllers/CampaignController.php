@@ -32,10 +32,10 @@ class CampaignController extends Controller
         $this->validate($req, [
             'campaignname' => 'required|max:50',
             'campaignbody' => 'required|min:2',
-            'campaignfile' => 'file',
-            'campaigncsv' => 'file',
-            'campaigndate' => 'required',
-            'campaigntime' => 'required'
+            // 'campaignfile' => 'file',
+            // 'campaigncsv' => 'file',
+            // 'campaigndate' => 'required',
+            // 'campaigntime' => 'required'
         ]);
 
         // dd($req->all());

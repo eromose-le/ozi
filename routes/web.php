@@ -5,6 +5,7 @@ use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\SuperAdminController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -30,6 +31,16 @@ Route::group(['middleware' => ['auth' => 'admin']], function () {
     Route::get('delete/{id}', [AdminController::class, 'delete']);
     Route::get('edit/{id}', [AdminController::class, 'show']);
     Route::post('/edit', [AdminController::class, 'update']);
+});
+
+// SUPER ADMIN ROUTES ____________________________________________________________
+Auth::routes();
+Route::group(['middleware' => ['auth' => 'superadmin']], function () {
+    Route::get('/root', [SuperAdminController::class, 'index'])->name('supershow')
+    ->middleware('auth');
+    Route::get('delete/{id}', [SuperAdminController::class, 'delete']);
+    Route::get('edit/{id}', [SuperAdminController::class, 'show']);
+    Route::post('/edit', [SuperAdminController::class, 'update']);
 });
 
 Route::get('/report', [ReportController::class, 'index'])
