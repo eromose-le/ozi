@@ -55,7 +55,7 @@ Route::get('/report', [ReportController::class, 'index'])
 // NORMAL ROUTE ____________________________________________________________
 Route::get('/', function () {
     return view('welcome');
-});
+}); 
 
 
 // APP ROUTES ______________________________________________________________
