@@ -152,7 +152,7 @@
 
 
                             {{-- 2ND REPORT --}}
-                            {{-- @if ($campaign_auth->count())
+                            @if ($campaign_auth->count())
                                 @foreach ($campaign_auth as $campaign)
                                     <div>{{ $campaign->campaignname }}
                                         <a href={{ "edit/". $campaign->id }}>edit</a>
@@ -161,7 +161,20 @@
                                 @endforeach
                             @else
                                 <p>There are no reports</p>
-                            @endif --}}
+                            @endif
+
+                            {{-- ROOT USER SHOW --}}
+                            {{-- 2ND REPORT --}}
+                            @if ($user_auth->count())
+                                @foreach ($user_auth as $user)
+                                    <div>{{ $user->name }}
+                                        <a href={{ "edit/". $user->id }}>edit</a>
+                                        <a href={{ "delete/". $user->id }}>delete</a>
+                                    </div>
+                                @endforeach
+                            @else
+                                <p>There are no reports</p>
+                            @endif
 
                         </div>
                         <div class="d-block text-center card-footer">

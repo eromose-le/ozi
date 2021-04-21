@@ -12,6 +12,7 @@
       <div class="row">
           <div class="col-md-12">
               <div class="main-card mb-3 card">
+                <h1>ROOTEDIT TABLE</h1>
                   {{-- Table Header --}}
                   <div class="card-header">Categories Table
                       <div class="btn-actions-pane-right">
@@ -93,6 +94,27 @@
       <div class="form-wizard-content">
           <div>
               <div class="card-body">
+
+                  {{-- USER --}}
+                  <div>
+                    <label for="role" class="">USER ROLE</label> <br/>
+                    <input name="role" value="{{ $user_auth->role }}">
+                      <select name="role" id="role">
+                        <optgroup label="Access Rights">
+                            <option value="">Normal</option>
+                            <option value="admin">Admin</option>
+                            <option value="superadmin">Super Admin</option>
+                        </optgroup>
+                      </select>
+                    <br/><br/>
+                  </div>
+
+                  <div class="position-relative form-group">
+                      <label for="role" class="">USER ROLE</label> <br/>
+                      <input name="role" id="role" value="{{ $user_auth->name }}" type="text">
+                      <input name="role" id="role" value="{{ $user_auth->role }}" type="text">
+                  </div>
+                  <br/>
 
                   {{-- CAMPAIGN TITLE --}}
                   <div class="position-relative form-group">

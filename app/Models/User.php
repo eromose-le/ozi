@@ -22,6 +22,7 @@ class User extends Authenticatable
         'password',
         'username',
         'number',
+        'role'
     ];
 
     /**
@@ -46,6 +47,11 @@ class User extends Authenticatable
     public function campaigns()
     {
         return $this->hasMany(Campaign::class);
+    }
+
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
     }
 
     // ADMIN Middleware FUNC

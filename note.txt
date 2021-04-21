@@ -1,0 +1,5 @@
+FIX DELETE FUNC 
+troubleshoot the controller
+decie weather to create new FUNC of delete or not.
+
+FIX UPDATE..
