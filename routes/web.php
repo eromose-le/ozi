@@ -35,7 +35,7 @@ Route::group(['middleware' => ['auth' => 'admin']], function () {
 
 // SUPER ADMIN ROUTES ____________________________________________________________
 Auth::routes();
-Route::group(['middleware' => ['auth' => 'superadmin']], function () {
+Route::group(['namespace'=>'App\Http\Controllers\Admin\SuperAdminController', 'middleware' => ['auth' => 'superadmin']], function () {
     Route::get('/root', [SuperAdminController::class, 'index'])->name('supershow')
     ->middleware('auth');
     Route::get('delete/{id}', [SuperAdminController::class, 'delete']);
