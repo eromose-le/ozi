@@ -24,7 +24,7 @@
 
 
         {{-- SUPER ADMIN TOGGLE BUTTON --}}
-        @if (auth()->user()->isRole()=="superadmin")
+        {{-- @if (auth()->user()->isRole()=="superadmin")
             <style>
                 .body-tabs-shadow .body-tabs-animated .nav-link::before {
                 box-shadow: 0 16px 26px -10px rgb(252 218 232), 0 4px 25px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(63 106 216 / 20%);
@@ -50,11 +50,27 @@
             </ul>
         @else
         </hr>
-        @endif
+        @endif --}}
 
         {{-- ADMIN TOGGLE BUTTONS --}}
         {{-- @if(Auth::check() && Auth::user()->isRole()=="admin") --}}
         @if (auth()->user()->isRole()=="admin")
+            <style>
+                .body-tabs-shadow .body-tabs-animated .nav-link::before {
+                box-shadow: 0 16px 26px -10px rgb(252 218 232), 0 4px 25px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(63 106 216 / 20%);
+            }
+            .tabs-animated .nav-link::before {
+                background: #029324;
+            }
+            </style>
+            <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
+                <li class="nav-item">
+                    <a role="tab" class="nav-link active" id="tab-0" href="{{ route('show') }}">
+                        <span>ADMIN PAGE</span>
+                    </a>
+                </li>
+            </ul>
+        @elseif (auth()->user()->isRole()=="superadmin")
             <style>
                 .body-tabs-shadow .body-tabs-animated .nav-link::before {
                 box-shadow: 0 16px 26px -10px rgb(252 218 232), 0 4px 25px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(63 106 216 / 20%);
@@ -65,8 +81,8 @@
             </style>
             <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
                 <li class="nav-item">
-                    <a role="tab" class="nav-link active" id="tab-0" href="{{ route('show') }}">
-                        <span>ADMIN PAGE</span>
+                    <a role="tab" class="nav-link active" id="tab-0" href="{{ route('supershow') }}">
+                        <span> SUPER ADMIN PAGE</span>
                     </a>
                 </li>
             </ul>

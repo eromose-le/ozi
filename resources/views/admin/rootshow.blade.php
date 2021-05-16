@@ -13,7 +13,7 @@
                     <div class="page-title-icon">
                         <i class="lnr-pie-chart icon-gradient bg-ripe-malin"></i>
                     </div>
-                    <div>Admin Dashboard
+                    <div>ROOT Admin Dashboard
                         <div class="page-title-subheading">Track Messages sending progress</div>
                     </div>
                 </div>

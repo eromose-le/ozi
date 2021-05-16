@@ -34,8 +34,8 @@ class CampaignController extends Controller
             'campaignbody' => 'required|min:2',
             // 'campaignfile' => 'file',
             // 'campaigncsv' => 'file',
-            // 'campaigndate' => 'required',
-            // 'campaigntime' => 'required'
+            'campaigndate' => 'required',
+            'campaigntime' => 'required'
         ]);
 
         // dd($req->all());
@@ -72,6 +72,7 @@ class CampaignController extends Controller
             'campaignfile' => $uploaded_file,
             'campaigncsv' => $uploaded_csv,
             'campaigndate' => $req->campaigndate,
+            'campaigntime' => $req->campaigntime,
             'age1' => $req->age1,
             'age2' => $req->age2,
             'age3' => $req->age3,

@@ -95,9 +95,28 @@
           <div>
               <div class="card-body">
 
-                  {{-- USER --}}
-                  <div>
-                    <label for="role" class="">USER ROLE</label> <br/>
+                  {{-- ADMIN STYLES --}}
+                  <style>
+                    .adminstyle {
+                      background-color: rgb(202, 15, 15);
+                      color: whitesmoke;
+                      font-size: 1rem;
+                      font-weight: bold;
+                      border-radius: 6px; padding: 15px 0 0 10px;
+                    },
+                    .userstyle {
+                      background-color: rgb(255, 255, 255)!important; 
+                      border-radius: 6px; padding: 15px 0 10px 10px;
+                    },
+                    #userstyle {
+                      background-color: rgb(255, 255, 255)!important; 
+                      border-radius: 6px; padding: 15px 0 10px 10px;
+                    }
+                  </style>
+
+                  {{-- USER ROLE PERMISSON --}}
+                  <div class="adminstyle">
+                    <label for="role" class="">{{ $user_auth->name }}'s ROLE PREMISSION</label> <br/>
                     <input name="role" value="{{ $user_auth->role }}">
                       <select name="role" id="role">
                         <optgroup label="Access Rights">
@@ -109,19 +128,21 @@
                     <br/><br/>
                   </div>
 
-                  <div class="position-relative form-group">
+                  {{-- <div class="position-relative form-group">
                       <label for="role" class="">USER ROLE</label> <br/>
                       <input name="role" id="role" value="{{ $user_auth->name }}" type="text">
                       <input name="role" id="role" value="{{ $user_auth->role }}" type="text">
-                  </div>
+                  </div> --}}
                   <br/>
 
                   {{-- CAMPAIGN TITLE --}}
+                <div id="userstyle">
                   <div class="position-relative form-group">
-                      <label for="status" class="">Campaign Title</label> <br/>
+                      <label for="status">Campaign Title</label> <br/>
                       <input name="status" id="status" value="{{ $campaign_auth->campaignname }}" type="text">
                   </div>
-                  <br/>
+                </div>
+                <br/>
 
                   {{-- IMAGE UPLOADS --}}
                   <div>

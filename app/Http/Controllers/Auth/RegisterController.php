@@ -29,7 +29,7 @@ class RegisterController extends Controller
             'number' => 'required|min:11',
             'email' => 'required|email|max:255',
             'password' => 'required|confirmed'
-        ]);
+        ]); 
 
         User::create([
             'name'=>$req->name,

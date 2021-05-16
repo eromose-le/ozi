@@ -26,7 +26,7 @@ class AdminController extends Controller
         return view('admin.show', [
             // Pass the Tables to View
             'campaign_auth' => $campaign_auth
-        ]);
+        ]); 
     }
 
     public function delete($id)

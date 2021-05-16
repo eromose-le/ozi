@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Root;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -22,13 +22,14 @@ class SuperAdminController extends Controller
         // $campaigns = Campaign::orderBy('created_at','desc')->paginate(3);
 
         // ALL USER in DB
-        $campaign_auth = Campaign::orderBy('created_at','desc')->get();
+        $campaign_auth_root = Campaign::orderBy('created_at','desc')->get();
 
         $user_auth = User::orderBy('created_at','desc')->get();
 
         return view('admin.rootshow', [
             // Pass the Tables to View
-            'campaign_auth' => $campaign_auth,
+            // tweaked the variable used to pass data
+            'campaign_auth' => $campaign_auth_root,
             'user_auth' => $user_auth
         ]); 
     }
@@ -47,7 +48,11 @@ class SuperAdminController extends Controller
     {
         $campaign_auth = Campaign::find($id);
         $user_auth = User::find($id);
-        return view('admin.rootedit', ['campaign_auth'=>$campaign_auth], ['user_auth'=>$user_auth]);
+
+        return view('admin.rootedit', [
+            'campaign_auth' => $campaign_auth, 
+            'user_auth' => $user_auth
+        ]);
     }
 
     public function update(Request $req)

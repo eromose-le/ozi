@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\SuperAdminController;
+// use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Root\AdminController;
+// use App\Http\Controllers\Admin\SuperAdminController;
+use App\Http\Controllers\Root\SuperAdminController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -25,17 +27,17 @@ use App\Http\Controllers\UploadImageController;
 // ADMIN ROUTES ____________________________________________________________
 Auth::routes();
 Route::group(['middleware' => ['auth' => 'admin']], function () {
-    Route::get('/admin', [AdminController::class, 'index'])
+    Route::get('/admin', [AdminController::class, 'ad_index'])
     ->name('show')
     ->middleware('auth');
-    Route::get('delete/{id}', [AdminController::class, 'delete']);
-    Route::get('edit/{id}', [AdminController::class, 'show']);
-    Route::post('/edit', [AdminController::class, 'update']);
+    Route::get('ad_delete/{id}', [AdminController::class, 'ad_delete']);
+    Route::get('ad_edit/{id}', [AdminController::class, 'ad_show']);
+    Route::post('/ad_edit', [AdminController::class, 'ad_update']);
 });
 
 // SUPER ADMIN ROUTES ____________________________________________________________
 Auth::routes();
-Route::group(['namespace'=>'App\Http\Controllers\Admin\SuperAdminController', 'middleware' => ['auth' => 'superadmin']], function () {
+Route::group(['middleware' => ['auth' => 'superadmin']], function () {
     Route::get('/root', [SuperAdminController::class, 'index'])->name('supershow')
     ->middleware('auth');
     Route::get('delete/{id}', [SuperAdminController::class, 'delete']);
@@ -53,9 +55,9 @@ Route::get('/report', [ReportController::class, 'index'])
 
 
 // NORMAL ROUTE ____________________________________________________________
-Route::get('/', function () {
-    return view('welcome');
-}); 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 // APP ROUTES ______________________________________________________________

@@ -41,14 +41,14 @@
                           <tbody>
                           {{-- TABLE BODY --}}
                           <tr>
-                              <td class="text-center">{{ $campaign_auth->age1 }}</td>
-                              <td class="text-center">{{ $campaign_auth->age2 }}</td>
-                              <td class="text-center">{{ $campaign_auth->age3 }}</td>
-                              <td class="text-center">{{ $campaign_auth->crypto }}</td>
-                              <td class="text-center">{{ $campaign_auth->fasion }}</td>
-                              <td class="text-center">{{ $campaign_auth->inspirational }}</td>
-                              <td class="text-center">{{ $campaign_auth->beauty }}</td>
-                              <td class="text-center">{{ $campaign_auth->technology }}</td>
+                              <td class="text-center">{{ $campaign_auth_ad->age1 }}</td>
+                              <td class="text-center">{{ $campaign_auth_ad->age2 }}</td>
+                              <td class="text-center">{{ $campaign_auth_ad->age3 }}</td>
+                              <td class="text-center">{{ $campaign_auth_ad->crypto }}</td>
+                              <td class="text-center">{{ $campaign_auth_ad->fasion }}</td>
+                              <td class="text-center">{{ $campaign_auth_ad->inspirational }}</td>
+                              <td class="text-center">{{ $campaign_auth_ad->beauty }}</td>
+                              <td class="text-center">{{ $campaign_auth_ad->technology }}</td>
                           </tr>
                                       
 
@@ -76,7 +76,7 @@
 
     </div>
 
-    <form action="/edit" method="POST">
+    <form action="/ad_edit" method="POST">
         @csrf
 
       <!-- SIDE FORM -->
@@ -97,51 +97,51 @@
                   {{-- CAMPAIGN TITLE --}}
                   <div class="position-relative form-group">
                       <label for="status" class="">Campaign Title</label> <br/>
-                      <input name="status" id="status" value="{{ $campaign_auth->campaignname }}" type="text">
+                      <input name="status" id="status" value="{{ $campaign_auth_ad->campaignname }}" type="text">
                   </div>
                   <br/>
 
                   {{-- IMAGE UPLOADS --}}
                   <div>
                     <label for="campaignfile" class="">Image file path</label>
-                    <a href="/download" download="{{ $campaign_auth->campaignfile }}"> <br/>
-                      <input name="campaigncsv" value="{{ $campaign_auth->campaignfile }}">
+                    <a href="/download" download="{{ $campaign_auth_ad->campaignfile }}"> <br/>
+                      <input name="campaigncsv" value="{{ $campaign_auth_ad->campaignfile }}">
                     <p>download file</p></a> 
                   </div><br />
 
                   {{-- CSV UPLOADS --}}
                   <div>
                     <label for="campaigncsv" class="">CSV file path</label> 
-                    <a href="/download" download="{{ $campaign_auth->campaigncsv }}"> <br/>
-                      <input name="campaigncsv" value="{{ $campaign_auth->campaigncsv }}">
+                    <a href="/download" download="{{ $campaign_auth_ad->campaigncsv }}"> <br/>
+                      <input name="campaigncsv" value="{{ $campaign_auth_ad->campaigncsv }}">
                     <p>download csv</p></a>
                   </div>
 
                   {{-- HIDDEN ID--}}
-                  <input name="id" type="hidden" value="{{ $campaign_auth->id }}"> <br/>
+                  <input name="id" type="hidden" value="{{ $campaign_auth_ad->id }}"> <br/>
 
                   {{-- RECIEVED COUNT --}}
                   <div>
                     <label for="recieved" class="">Recieved Count</label> <br/>
-                    <input name="recieved" value="{{ $campaign_auth->recieved }}"> <br/><br/>
+                    <input name="recieved" value="{{ $campaign_auth_ad->recieved }}"> <br/><br/>
                   </div>
 
                   {{-- SENT COUNT --}}
                   <div>
                     <label for="sent" class="">Sent Count</label> <br/>
-                    <input name="sent" value="{{ $campaign_auth->sent }}"> <br/><br/>
+                    <input name="sent" value="{{ $campaign_auth_ad->sent }}"> <br/><br/>
                   </div>
 
                   {{-- TOTAL COUNT --}}
                   <div>
                     <label for="total" class="">Total Count</label> <br/>
-                    <input name="total" value="{{ $campaign_auth->total }}"> <br/><br/>
+                    <input name="total" value="{{ $campaign_auth_ad->total }}"> <br/><br/>
                   </div>
 
                   {{-- ICON --}}
                   <div>
                     <label for="status" class="">Icon</label> <br/>
-                    <input name="status" value="{{ $campaign_auth->status }}">
+                    <input name="status" value="{{ $campaign_auth_ad->status }}">
                     <select name="status" id="status">
                       <optgroup label="State">
                           <option value="/images/avatars/progress.gif">Progress</option>
@@ -153,7 +153,7 @@
                   {{-- STATISTICS 2 --}}
                   <div> <br/>
                     <label for="progress2" class="">START</label> <br/>
-                    <input name="progress2" value="{{ $campaign_auth->progress2 }}"> 
+                    <input name="progress2" value="{{ $campaign_auth_ad->progress2 }}"> 
                       <select name="progress2" id="progress2">
                         <optgroup label=" ">
                             <option value="1">START</option>
@@ -166,7 +166,7 @@
                   {{-- STATISTICS 1 --}}
                   <div>
                     <label for="progress" class="">Statistics %</label> <br/>
-                    <input name="progress" value="{{ $campaign_auth->progress }}"> 
+                    <input name="progress" value="{{ $campaign_auth_ad->progress }}"> 
                       <select name="progress" id="progress">
                         <optgroup label="%">
                             <option value="9">10%</option>
@@ -183,7 +183,7 @@
                   {{-- ACTIONS --}}
                   <div>
                     <label for="actions" class="">Actions</label> <br/>
-                    <input name="actions" value="{{ $campaign_auth->actions }}">
+                    <input name="actions" value="{{ $campaign_auth_ad->actions }}">
                       <select name="actions" id="actions">
                           <optgroup label="State">
                               <option value="Verifying Payment">Verifying Payment</option>
@@ -199,7 +199,7 @@
                   {{-- COLOR --}}
                   <div>
                     <label for="actionsclass" class="">Color</label> <br/>
-                    <input name="actionsclass" value="{{ $campaign_auth->actionsclass }}">
+                    <input name="actionsclass" value="{{ $campaign_auth_ad->actionsclass }}">
                       <select name="actionsclass" id="actionsclass">
                         <optgroup label="Colour Background">
                             <option value="badge-warning">Orange</option>

@@ -58,8 +58,8 @@
                                 <tbody>
 
                                     {{-- PENDING ROW --}}
-                                    @if ($campaign_auth->count())
-                                        @foreach ($campaign_auth as $campaign)
+                                    @if ($campaign_auth_ad->count())
+                                        @foreach ($campaign_auth_ad as $campaign)
                                             {{-- @if ($campaign_auth->ownedBy(auth()->user())) --}}
                                                 <tr>
                                                     <td class="text-center text-muted">{{ $campaign->id }}</td>
@@ -95,10 +95,10 @@
                                                         <div class="badge {{ $campaign->actionsclass }}">{{ $campaign->actions }}</div>
                                                     </td>
                                                     <td class="text-center">
-                                                        <div class="badge"><a href={{ "edit/". $campaign->id }}>edit</a></div>
+                                                        <div class="badge"><a href={{ "ad_edit/". $campaign->id }}>edit</a></div>
                                                     </td>
                                                     <td class="text-center">
-                                                        <div class="badge"><a href={{ "delete/". $campaign->id }}>delete</a></div>
+                                                        <div class="badge"><a href={{ "ad_delete/". $campaign->id }}>delete</a></div>
                                                     </td>
                                                     {{-- <td class="text-center">
                                                         <div class="badge"><a href="download">download</a></div>

@@ -22,8 +22,8 @@ class CreateCampaignsTable extends Migration
             $table->string('campaignfile')->nullable();
             $table->string('campaignnumbers')->default('+2348159011732');
             $table->string('campaigncsv')->nullable();
-            $table->string('campaigndate');
-            $table->string('campaigntime');
+            $table->string('campaigndate')->nullable();
+            $table->string('campaigntime')->nullable();
 
             $table->string('status')->default('/images/avatars/progress.gif');
             $table->string('progress')->default('9');
@@ -33,7 +33,7 @@ class CreateCampaignsTable extends Migration
 
             $table->string('recieved')->default('0');
             $table->string('sent')->default('0');
-            $table->string('total');
+            $table->string('total')->nullable();
 
             $table->string('age1')->nullable();
             $table->string('age2')->nullable();
